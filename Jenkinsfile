@@ -17,8 +17,7 @@ pipeline {
         stage('Run') {
             steps {
                 script {
-                    sh "${params.LENGTH_IN_FEET}"
-                    sh "docker run -i -p 8083:8083 sangamesh8055/unit-convert"
+                     sh "docker run -i -p 8083:8083 sangamesh8055/unit-convert ${params.LENGTH_IN_FEET}"
                 }
             }
         }
