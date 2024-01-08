@@ -9,6 +9,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                    // Use BUILD_NUMBER in the container name
+                    def containerName = "unitss-${BUILD_NUMBER}"
                     sh 'docker build -t sangamesh8055/unit-convert .'
                 }
             }
@@ -17,7 +19,9 @@ pipeline {
         stage('Run') {
             steps {
                 script {
-                    sh "docker run -d -p 8083:8083 --name unitss sangamesh8055/unit-convert python unit_converter.py ${params.LENGTH_IN_FEET}"
+                     // Use BUILD_NUMBER in the container name
+                    def containerName = "unitss-${BUILD_NUMBER}"
+                    sh "docker run -d -p 8083:8083 --name ${containerName} sangamesh8055/unit-convert python unit_converter.py ${params.LENGTH_IN_FEET}"
                 }
             }
         }
@@ -26,7 +30,7 @@ pipeline {
             steps {
                 script {
                      sh "docker ps -a"
-                     sh "docker logs unitss"
+                     sh "docker logs ${containerName}"
                      //sh "docker exec unitss python unit_converter.py ${params.LENGTH_IN_FEET}"
                 }
             }
