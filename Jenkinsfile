@@ -22,4 +22,11 @@ pipeline {
             }
         }
     }
+     post {
+        always {
+            script {
+                sh "docker exec unit-convert-container python unit_converter.py ${params.LENGTH_IN_FEET}"
+            }
+        }
+    }
 }
