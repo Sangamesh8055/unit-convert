@@ -22,11 +22,12 @@ pipeline {
             }
         }
     }
-     post {
-        always {
-            script {
-                sh "docker exec sangamesh8055/unit-convert python unit_converter.py ${params.LENGTH_IN_FEET}"
-            }
+     stage('Declarative: Post Actions') {
+    steps {
+        script {
+            sh "docker exec unit-convert-container python unit_converter.py 1"
         }
     }
+}
+
 }
