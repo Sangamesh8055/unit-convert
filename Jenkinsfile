@@ -39,7 +39,7 @@ pipeline {
                     // Show container information
                     sh "docker ps -a"
                     sh "docker logs ${containerName}"
-                    sh "docker exec ${containerName} python unit_converter.py ${params.LENGTH_IN_FEET}"
+                    //sh "docker exec ${containerName} python unit_converter.py ${params.LENGTH_IN_FEET}"
                 }
             }
         }
