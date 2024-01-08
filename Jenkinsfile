@@ -25,7 +25,7 @@ pipeline {
                     def containerName = "unitss-${BUILD_NUMBER}"
 
                     // Run the Docker container
-                    sh "docker run -d -p 8083:8083 --name ${containerName} sangamesh8055/unit-convert python unit_converter.py ${params.LENGTH_IN_FEET}"
+                    sh "docker run -d -p 8083:8083 --name ${containerName} sangamesh8055/unit-convert"
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
                     // Show container information
                     sh "docker ps -a"
                     sh "docker logs ${containerName}"
-                    //sh "docker exec ${containerName} python unit_converter.py ${params.LENGTH_IN_FEET}"
+                    // sh "docker exec ${containerName} python unit_converter.py ${params.LENGTH_IN_FEET}"
                 }
             }
         }
