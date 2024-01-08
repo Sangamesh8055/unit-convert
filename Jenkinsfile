@@ -21,7 +21,6 @@ pipeline {
                 }
             }
         }
-    }
        stage('exec') {
            steps {
                script {
@@ -29,5 +28,5 @@ pipeline {
                }
            }
        }
-
+    }
 }
