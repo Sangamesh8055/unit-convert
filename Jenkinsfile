@@ -25,7 +25,7 @@ pipeline {
      post {
         always {
             script {
-                sh "docker exec unit-convert-container python unit_converter.py ${params.LENGTH_IN_FEET}"
+                sh "docker exec sangamesh8055/unit-convert python unit_converter.py ${params.LENGTH_IN_FEET}"
             }
         }
     }
