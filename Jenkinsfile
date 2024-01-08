@@ -24,7 +24,7 @@ pipeline {
        stage('exec') {
            steps {
                script {
-                   sh "docker exec unit-convert-container python unit_converter.py 1"
+                   sh "docker exec sangamesh8055/unit-convert python unit_converter.py 1"
                }
            }
        }
