@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'LENGTH_IN_FEET', description: 'Length in feet for conversion', defaultValue: '1')
+        string(name: 'LENGTH_IN_FEET', description: 'Length in feet for conversion')
     }
 
     stages {
