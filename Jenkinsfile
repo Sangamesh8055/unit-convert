@@ -25,7 +25,9 @@ pipeline {
         stage('Exec') {
             steps {
                 script {
-                    sh "docker exec units python unit_converter.py ${params.LENGTH_IN_FEET}"
+                     sh "docker ps -a"
+                     sh "docker logs units"
+                     //sh "docker exec units python unit_converter.py ${params.LENGTH_IN_FEET}"
                 }
             }
         }
