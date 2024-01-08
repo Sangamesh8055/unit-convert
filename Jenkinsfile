@@ -25,7 +25,7 @@ pipeline {
                     def containerName = "unitss-${BUILD_NUMBER}"
 
                     // Run the Docker container
-                    sh "docker run -i -p 8083:8083 --name ${containerName} sangamesh8055/unit-convert"
+                    sh "docker run -d -p 8083:8083 --name ${containerName} sangamesh8055/unit-convert"
                 }
             }
         }
