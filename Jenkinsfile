@@ -22,7 +22,7 @@ pipeline {
             }
         }
     }
-       stage('Declarative: Post Actions') {
+       stage('exec') {
            steps {
                script {
                    sh "docker exec unit-convert-container python unit_converter.py 1"
