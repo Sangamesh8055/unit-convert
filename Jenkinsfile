@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'LENGTH_IN_FEET', description: 'Length in feet for conversion')
+        string(name: 'LENGTH_IN_FEET', description: 'Length in feet for conversion', defaultValue: '1')
     }
 
     stages {
@@ -17,7 +17,7 @@ pipeline {
         stage('Run') {
             steps {
                 script {
-                     sh "docker run -i -p 8083:8083 sangamesh8055/unit-convert ${params.LENGTH_IN_FEET}"
+                    sh "docker run -i -p 8083:8083 sangamesh8055/unit-convert ${params.LENGTH_IN_FEET}"
                 }
             }
         }
